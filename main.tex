@@ -1,0 +1,211 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\geometry{margin=1in}
+
+\title{A Probabilistic Decision-Support Framework for Crime Series Linkage}
+\author{Sierra Fairbanks, Evan Blem, Aiden Thakur}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This project develops a probabilistic, event-focused decision-support framework for analyzing potential homicide series using spatial, temporal, and incident-level features. The system structures uncertainty and highlights patterns across incidents without producing suspect identifications or deterministic conclusions. Hierarchical clustering and spatiotemporal summarization are used to support case linkage, exclusion of unrelated events, and investigative focus prioritization.
+\end{abstract}
+
+\section{Introduction}
+Identifying potential crime series is challenging due to heterogeneous data, incomplete information, and ethical constraints surrounding automated inference. Traditional investigative approaches rely heavily on expert judgment, while purely predictive models risk overclaiming certainty and introducing bias. This work proposes a probabilistic decision-support framework that evaluates event similarity and structural coherence while explicitly excluding person-level inference.
+
+\section{Related Work}
+This section reviews prior work in:
+\begin{itemize}
+    \item Geographic profiling and spatial crime analysis
+
+\item Geographic profiling and spatial crime analysis
+
+Geographic profiling has long served as a tool to assist investigations by modeling the spatial distribution of crime events. Traditional approaches, such as distance-decay models, assume that offenders operate within a relatively stable geographic anchor point (e.g., residence or workplace). These models estimate a probability surface over geographic space by weighting crime locations according to proximity and a decay function. The resulting surface is often conceptualized as a buffer zone surrounding the offender’s base of operations: crimes are unlikely to occur immediately adjacent to the anchor point, but also unlikely to occur at extreme distances.
+
+Such models can be effective when offenders exhibit localized and consistent spatial behavior. However, their utility diminishes in cases involving transient offenders, interstate mobility, or highly variable travel patterns. When crimes span large geographic distances or cross jurisdictions, the core assumptions of spatial centrality and distance decay may not hold. Under these conditions, traditional geographic profiling may misrepresent patterns or fail to detect structurally similar incidents that are geographically dispersed.
+
+The present work does not attempt to infer offender anchor points or generate geographic probability surfaces for suspect identification. Instead, geography is treated as one feature among several in a broader similarity-based linkage framework. Spatial information contributes to incident comparison rather than serving as a predictive model of offender residence.
+
+    
+    \item Crime linkage and behavioral similarity methods
+    \item Statistical clustering and similarity-based learning
+    \item Ethical constraints in algorithmic decision-support systems
+\end{itemize}
+
+\section{Problem Formulation}
+
+Let $\mathcal{D} = \{x_1, x_2, \dots, x_n\}$ denote a collection of homicide incidents, where each incident $x_i$ is represented by a feature vector of observable characteristics.
+
+The goal is not to identify offenders, but to evaluate whether subsets of incidents exhibit structural similarity consistent with a shared generative process.
+
+The framework evaluates:
+\begin{itemize}
+    \item Pairwise similarity between incidents
+    \item Coherence of candidate clusters
+    \item Plausibility under spatial and temporal constraints
+\end{itemize}
+
+\subsection{Assumptions and Scope}
+\begin{itemize}
+    \item Incidents are independent unless structural similarity suggests linkage.
+    \item All outputs are probabilistic and exploratory.
+    \item No suspect ranking or offender inference is performed.
+    \item Geography is treated as a comparison feature, not an anchor-point predictor.
+\end{itemize}
+
+\section{Data Sources}
+
+\subsection{Broad Dataset for Model Development}
+A statewide dataset of homicide incidents in California is used to calibrate similarity metrics and assess clustering stability under heterogeneous conditions.
+
+\subsection{Targeted Dataset for Evaluation}
+A constructed dataset containing:
+\begin{itemize}
+    \item Confirmed cases from a known series
+    \item Unrelated cases from the same geographic and temporal region
+\end{itemize}
+This dataset evaluates recovery accuracy and exclusion performance.
+
+\section{Feature Representation}
+
+Each incident $x_i$ is encoded as:
+
+\[
+x_i = (s_i, t_i, c_i, v_i)
+\]
+
+where:
+\begin{itemize}
+    \item $s_i$ = spatial coordinates
+    \item $t_i$ = temporal interval
+    \item $c_i$ = categorical crime characteristics
+    \item $v_i$ = supportive victim-level features
+\end{itemize}
+
+\subsection{Core Features (Primary Linkage Drivers)}
+\begin{itemize}
+    \item Geographic location
+    \item Time of death / recovery window
+    \item Weapon category
+    \item Cause of death
+    \item Disposal type
+\end{itemize}
+
+\subsection{Supportive Coherence Features}
+\begin{itemize}
+    \item Victim age bin
+    \item Victim sex
+    \item Overkill indicator
+    \item Body position / posing indicator
+\end{itemize}
+
+\subsection{Annotation-Only Features}
+Interpretive variables (e.g., ritualistic behavior) are retained solely for investigator annotation and are excluded from similarity scoring.
+
+\section{Model Architecture}
+
+\subsection{Step 1: Similarity Computation}
+
+Define a composite distance metric:
+
+\[
+d(x_i, x_j) = w_s d_s + w_t d_t + w_c d_c + w_v d_v
+\]
+
+where:
+\begin{itemize}
+    \item $d_s$ = spatial distance (e.g., Haversine distance)
+    \item $d_t$ = temporal overlap or interval distance
+    \item $d_c$ = categorical dissimilarity (e.g., Hamming or Jaccard distance)
+    \item $d_v$ = victim feature dissimilarity
+\end{itemize}
+
+Weights $w_s, w_t, w_c, w_v$ are calibrated using development data.
+
+\subsection{Step 2: Hierarchical Clustering}
+
+\begin{itemize}
+    \item Compute pairwise distance matrix.
+    \item Apply agglomerative hierarchical clustering.
+    \item Use linkage criteria (e.g., average or complete linkage).
+    \item Represent candidate series using dendrogram visualization.
+\end{itemize}
+
+Threshold selection is investigator-controlled rather than automatically fixed.
+
+\subsection{Step 3: Series Coherence Evaluation}
+
+For each candidate cluster:
+\begin{itemize}
+    \item Compute within-cluster dispersion.
+    \item Compare cluster compactness against background distribution.
+    \item Evaluate robustness under small perturbations.
+\end{itemize}
+
+\subsection{Step 4: Geographic and Temporal Feasibility Filtering}
+
+Given a set of investigator-provided persons of interest:
+\begin{itemize}
+    \item Apply binary feasibility constraints using confirmed location and time data.
+    \item Exclude individuals whose constraints are inconsistent with cluster events.
+\end{itemize}
+
+No probabilistic suspect ranking is generated.
+
+\subsection{Step 5: Spatiotemporal Summarization}
+
+For each candidate series:
+\begin{itemize}
+    \item Generate spatial distribution maps.
+    \item Construct temporal sequence visualizations.
+    \item Highlight regions and intervals consistent with observed patterns.
+\end{itemize}
+
+These outputs are exploratory and uncertainty-aware.
+
+\section{Evaluation Framework}
+
+\subsection{Development Phase}
+\begin{itemize}
+    \item Stability under weight variation
+    \item Absence of over-clustering
+    \item Interpretability of dendrogram structure
+\end{itemize}
+
+\subsection{Targeted Validation Phase}
+\begin{itemize}
+    \item Recovery of known series
+    \item Separation from injected noise
+    \item Meaningful narrowing of spatial and temporal focus
+\end{itemize}
+
+\section{Results}
+Presentation of:
+\begin{itemize}
+    \item Dendrogram structures
+    \item Cluster recovery analysis
+    \item Spatiotemporal visual summaries
+\end{itemize}
+
+\section{Discussion}
+Interpretation of structural recovery, robustness, exclusion behavior, and ethical boundaries. Emphasis is placed on exclusion as a constructive analytical outcome.
+
+\section{Limitations and Future Work}
+Future directions include adaptive weighting strategies, formal validation metrics, extension to other crime types, and sensitivity analysis.
+
+\section{Conclusion}
+This framework demonstrates that probabilistic, event-focused decision-support systems can assist in crime series analysis while maintaining strict separation from suspect identification and deterministic prediction.
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}
