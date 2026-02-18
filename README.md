@@ -4,6 +4,34 @@ Group Members: Aiden Thakur, Evan Blem, Sierra Fairbanks
 Serial killer data
 
 ## Kaggle US_Crime_DataSet Description
+The Dataset contains the record of all the crimes in US form 1980.
+There are 638454 records and 24 Columns of record.
 
+The Columns are
+
+Record ID- Record Id of the Crime
+Agency Code- Agent recorded the crime
+Agency Name- Agency to which the crime was reported
+Agency Type- Type of Agency
+City- City of Crime
+State- State of Crime
+Year- Year in which crime was reported
+Month- Month in which crime was reported
+Incident- No. of Incident
+Crime Type- Type of crime conducted
+Crime Solved- Was it solved
+Victim Sex- Gender of the victim
+Victim Age- Age of the victim
+Victim Race- Race of the victim
+Victim Ethnicity- Ethnicity of the victim
+Perpetrator Sex- Gender of the Perpetrator
+Perpetrator Age- Age of the Perpetrator
+Perpetrator Race- Race of the Perpetrator
+Perpetrator Ethnicity- Ethnicity of the Perpetrator
+Relationship- Relationship between Perpetrator and Victim
+Weapon- Weapon used in crime
+Victim Count- Number of Victim
+Perpetrator Count- Number of Perpetrator
+Record Source- Agency that entered the data
 
 ## Other Datasets*
