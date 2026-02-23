@@ -1,14 +1,16 @@
 # The Serial Killer Capstone README File
-Group Members: Aiden Thakur, Evan Blem, Sierra Fairbanks
+#### Group Members: Aiden Thakur, Evan Blem, Sierra Fairbanks
 ## Project Description
-Serial killer data
+This project develops a probabilistic, event-focused decision-support framework for analyzing potential homicide series using spatial, temporal, and incident-level features. The system structures uncertainty and highlights patterns across incidents without producing suspect identifications or deterministic conclusions. Hierarchical clustering and spatiotemporal summarization are used to support case linkage, exclusion of unrelated events, and investigative focus prioritization.
 
-## Kaggle US_Crime_DataSet Description
+## Table of Contents
+
+
+## Data Sets:
+### Kaggle US_Crime_DataSet Description
 The Dataset contains the record of all the crimes in US form 1980.
 There are 638454 records and 24 Columns of record.
-
-#### The Columns are:
-
+#### Column Name & Descriptors:
 * Record ID- Record Id of the Crime
 * Agency Code- Agent recorded the crime
 * Agency Name- Agency to which the crime was reported
@@ -34,4 +36,4 @@ There are 638454 records and 24 Columns of record.
 * Perpetrator Count- Number of Perpetrator
 * Record Source- Agency that entered the data
 
-## Other Datasets*
+## Other Datasets (TBD)
