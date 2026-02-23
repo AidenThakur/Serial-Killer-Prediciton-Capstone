@@ -9,7 +9,7 @@ This project develops a probabilistic, event-focused decision-support framework 
 *   [Usage](#usage)
 *   [Technologies](#technologies)
 
-## Data Sets:
+## Datasets:
 ### Kaggle US_Crime_DataSet Description
 The Dataset contains the record of all the crimes in US form 1980.
 There are 638454 records and 24 Columns of record.
@@ -47,5 +47,5 @@ Step-by-step guidance on how to set up the project, including any system or infr
 ## Usage: 
 Clear instructions and examples (including copy-paste-ready commands) for how to run the project's main scripts or use the library, ideally showcasing its primary features.
 
-## Technologies Used: 
+## Technologies: 
 A list of the core technologies, programming languages (Python and version number), and third-party frameworks or libraries used.
