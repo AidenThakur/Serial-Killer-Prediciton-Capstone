@@ -4,7 +4,7 @@
 This project develops a probabilistic, event-focused decision-support framework for analyzing potential homicide series using spatial, temporal, and incident-level features. The system structures uncertainty and highlights patterns across incidents without producing suspect identifications or deterministic conclusions. Hierarchical clustering and spatiotemporal summarization are used to support case linkage, exclusion of unrelated events, and investigative focus prioritization.
 
 ## Table of Contents
-*   [Data Sets](#data sets)
+*   [Datasets](#datasets)
 *   [Installation](#installation)
 *   [Usage](#usage)
 *   [Technologies](#technologies)
