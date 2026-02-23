@@ -4,7 +4,10 @@
 This project develops a probabilistic, event-focused decision-support framework for analyzing potential homicide series using spatial, temporal, and incident-level features. The system structures uncertainty and highlights patterns across incidents without producing suspect identifications or deterministic conclusions. Hierarchical clustering and spatiotemporal summarization are used to support case linkage, exclusion of unrelated events, and investigative focus prioritization.
 
 ## Table of Contents
-
+*   [Data Sets](#datasets)
+*   [Installation](#installation)
+*   [Usage](#usage)
+*   [Technologies Used](#technologies)
 
 ## Data Sets:
 ### Kaggle US_Crime_DataSet Description
@@ -36,4 +39,13 @@ There are 638454 records and 24 Columns of record.
 * Perpetrator Count- Number of Perpetrator
 * Record Source- Agency that entered the data
 
-## Other Datasets (TBD)
+#### Other Datasets (TBD)
+
+## Installation: 
+Step-by-step guidance on how to set up the project, including any system or infrastructure requirements, a list of dependencies, and how to install necessary libraries (e.g., using a requirements.txt file).
+
+## Usage: 
+Clear instructions and examples (including copy-paste-ready commands) for how to run the project's main scripts or use the library, ideally showcasing its primary features.
+
+## Technologies Used: 
+A list of the core technologies, programming languages (Python and version number), and third-party frameworks or libraries used.
