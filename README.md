@@ -42,10 +42,10 @@ There are 638454 records and 24 Columns of record.
 #### Other Datasets (TBD)
 
 ## Installation: 
-Step-by-step guidance on how to set up the project, including any system or infrastructure requirements, a list of dependencies, and how to install necessary libraries (e.g., using a requirements.txt file).
+Step-by-step guidance on how to set up the project, including any system or infrastructure requirements, a list of dependencies, and how to install necessary libraries.
 
 ## Usage: 
-Clear instructions and examples (including copy-paste-ready commands) for how to run the project's main scripts or use the library, ideally showcasing its primary features.
+Clear instructions and examples for how to run the project's main scripts or use the library, ideally showcasing its primary features.
 
 ## Technologies: 
-A list of the core technologies, programming languages (Python and version number), and third-party frameworks or libraries used.
+A list of the core technologies, programming languages, and third-party frameworks or libraries used.
