@@ -10,7 +10,7 @@ This project develops a probabilistic, event-focused decision-support framework 
 *   [Technologies](#technologies)
 
 ## Datasets:
-### Kaggle US_Crime_DataSet Description
+### Kaggle US_Crime_DataSet Description(which can be found here: https://www.kaggle.com/datasets/mrayushagrawal/us-crime-dataset)
 The Dataset contains the record of all the crimes in US form 1980.
 There are 638454 records and 24 Columns of record.
 #### Column Name & Descriptors:
